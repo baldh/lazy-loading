@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center
+}
+
+.content {
+    width: 100%;
+    max-width: 800px;
+    padding-top: 1000px;
+}
+
+img {
+    width: 100%;
+}
+
+.image-container {
+    margin: 24px 0;
+}
+
+.placeholder {
+    padding-top: 400px;
+    width: 100%;
+    background: linear-gradient(90deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+}
+
+.placeholder img{
+    display: none;
+}
+
+.lazy-image {
+    width: 100%;
+    filter: blur(20px);
+}
+
+@keyframes shine {
+    to {
+        background-position-x: -200%;
+    }
+}
