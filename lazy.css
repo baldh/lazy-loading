@@ -3,10 +3,14 @@ body {
     padding: 0;
 }
 
+img {
+    width: 100%;
+}
+
 .container {
     height: 100%;
     display: flex;
-    justify-content: center
+    justify-content: center;
 }
 
 .content {
@@ -15,30 +19,20 @@ body {
     padding-top: 1000px;
 }
 
-img {
-    width: 100%;
-}
 
 .image-container {
     margin: 24px 0;
+    overflow: hidden;
+    border-radius: 16px;
+    perspective: 1px;
 }
 
-.placeholder {
+.loader {
     padding-top: 400px;
     width: 100%;
     background: linear-gradient(90deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
-    border-radius: 5px;
     background-size: 200% 100%;
     animation: 1.5s shine linear infinite;
-}
-
-.placeholder img{
-    display: none;
-}
-
-.lazy-image {
-    width: 100%;
-    filter: blur(20px);
 }
 
 @keyframes shine {
@@ -46,3 +40,19 @@ img {
         background-position-x: -200%;
     }
 }
+
+.loader img {
+    display: none;
+}
+
+.placeholder {
+    width: 100%;
+    object-fit: cover;
+    filter: blur(40px);
+}
+
+/*Utilities*/
+.hidden {
+    display: none;
+}
+
