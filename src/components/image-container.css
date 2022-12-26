@@ -1,29 +1,6 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
-img {
-    width: 100%;
-}
-
-.container {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.content {
-    width: 100%;
-    max-width: 800px;
-    padding-top: 1000px;
-}
-
-
 .image-container {
     margin: 24px 0;
     overflow: hidden;
-    border-radius: 16px;
     perspective: 1px;
 }
 
@@ -50,9 +27,3 @@ img {
     object-fit: cover;
     filter: blur(40px);
 }
-
-/*Utilities*/
-.hidden {
-    display: none;
-}
-
