@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react'
+import {useRef, useState, useReducer} from 'react'
 import useIntersectionObserver from '../hooks/use-intersection-observer'
 import "./image-container.css"
 
@@ -20,15 +20,19 @@ function handleIntersection(entries, observer) {
   })
 }
 
-export default function ImageContainer({placeholder, final, alt="image"}) {
+export default function ImageContainer({placeholder, final, alt = "image"}) {
   const ref = useRef()
   const [placeholderLoaded, setPlaceholderLoaded] = useState(false)
+  const [finalLoaded, setFinalLoaded] = useState(false)
 
-  useIntersectionObserver(handleIntersection,undefined,ref)
 
-  return <div className={`image-container ${!placeholderLoaded && "loader"}`} ref={ref}>
-    <img src="" alt={alt} data-src={`${placeholder}`} className={"placeholder"}
+  // useIntersectionObserver(handleIntersection, undefined, ref)
+
+  return <div className={`image-container ${!placeholderLoaded && "loader"}`} >
+    <img alt={alt} src={`${placeholder}`} className={`placeholder ${finalLoaded && "hidden"}`} loading={'lazy'}
          onLoad={() => setPlaceholderLoaded(true)}/>
-    <img src="" alt={alt} data-src={`${final}`} className={"hidden"}/>
+    <img alt={alt} src={`${final}`} className={`${!finalLoaded && "hidden"}`} loading={'lazy'}
+         onLoad={() => setFinalLoaded(true)}
+    />
   </div>
 }
